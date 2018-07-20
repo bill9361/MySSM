@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bill.ssm.mapper.UserMapper">
+	<resultMap type="com.bill.ssm.entity.User" id="User">
+		<!-- 
+			property：代表实体类的属性名
+			javaType:代表实体类中属性名的类型
+			column：数据库中查询语句的字段名
+			jdbcType：数据库中查询语句的字段名的类型（可不填）
+		 -->
+		<result property="username" javaType="String" column="username"/>
+		<result property="password" javaType="String" column="password"/>
+		<result property="fullname" javaType="String" column="fullname"/>
+		<result property="idNumber" javaType="String" column="id_number"/>
+		<result property="dateOfBirth" javaType="String" column="date_of_birth"/>
+		<result property="isLock" javaType="Integer" column="is_lock"/>
+		<result property="workingStatus" javaType="Integer" column="working_status"/>
+		<result property="validityStartDate" javaType="String" column="validity_start_date"/>
+		<result property="validityEndDate" javaType="String" column="validity_end_date"/>
+		<result property="companyId" javaType="String" column="company_id"/>
+		<result property="postId" javaType="String" column="post_id"/>
+		<result property="tel" javaType="String" column="tel"/>
+		<result property="email" javaType="String" column="email"/>
+		<result property="qq" javaType="String" column="qq"/>
+		<result property="wechat" javaType="String" column="wechat"/>
+		<result property="roleId" javaType="String" column="role_id"/>
+		<result property="userGroupId" javaType="String" column="user_group_id"/>
+		<result property="id" javaType="String" column="id"/>
+		<result property="createTime" javaType="String" column="create_time"/>
+		<result property="createBy" javaType="String" column="create_by"/>
+		<result property="updateTime" javaType="String" column="update_time"/>
+		<result property="updateBy" javaType="String" column="update_by"/>
+	</resultMap>
+	
+	<!-- 根据Id查用户 -->
+	<select id="queryById" parameterType="String" resultMap="User">
+		select * from user where id=#{id}
+	</select>
+	
+</mapper>

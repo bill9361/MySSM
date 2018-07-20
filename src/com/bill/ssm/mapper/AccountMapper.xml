@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bill.ssm.mapper.AccountMapper">
+	<resultMap type="com.bill.ssm.entity.Account" id="Account">
+		<!-- 
+			property：代表实体类的属性名
+			javaType:代表实体类中属性名的类型
+			column：数据库中查询语句的字段名
+			jdbcType：数据库中查询语句的字段名的类型（可不填）
+		 -->
+		<result property="id" javaType="String" column="id"/>
+		<result property="bankNo" javaType="String" column="bank_no"/>
+		<result property="username" javaType="String" column="username"/>
+		<result property="money" javaType="Integer" column="money"/>
+	</resultMap>
+	
+	<!-- 根据bank_no更新money -->
+	<update id="upadteMoney">
+		update account set money = money+#{1} where bank_no=#{0}
+	</update>
+	
+</mapper>
